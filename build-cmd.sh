@@ -27,7 +27,9 @@ stage="$(pwd)/stage"
 # load autobuild provided shell functions and variables
 source_environment_tempfile="$stage/source_environment.sh"
 "$autobuild" source_environment > "$source_environment_tempfile"
+set +x
 . "$source_environment_tempfile"
+set -x
 
 [ -f "$stage"/packages/include/zlib-ng/zlib.h ] || fail "You haven't installed packages yet."
 
